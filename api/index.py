@@ -18,8 +18,10 @@ app.add_middleware(
 
 # Get the directory of the current file
 current_dir = os.path.dirname(os.path.abspath(__file__))
+json_path = os.path.join(current_dir, "q-vercel-python.json")
+
 # Load student marks data from the same directory as this file
-with open(os.path.join(current_dir, 'q-vercel-python.json')) as f:
+with open(json_path, "r") as f:
     students_data = json.load(f)
 
 @app.get("/api")
